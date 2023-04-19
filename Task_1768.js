@@ -8,7 +8,13 @@ const word2 = 'pqrds';
 // [...word1] = ['a', 'b', 'c']
 // .reduce((acc, cur, i) => acc + cur + word2[i], '')
 
-const [longest, shortest] = word1 > word2 ? [word1.split(''), word2.split('')] : [word2.split(''), word1.split(''];
-const red = [...word1].reduce((prev, cur) => prev + cur + word2.shift(), '');
+const [longest, shortest] =
+  word1 > word2
+    ? [word1.split(''), word2.split('')]
+    : [word2.split(''), word1.split('')];
+
+const red =
+  [...shortest].reduce((prev, cur) => prev + cur + longest.shift(), '') +
+  longest.join('');
 
 console.log(red);
